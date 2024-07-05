@@ -1,4 +1,4 @@
-import iziToast from 'iziToast';
+import iziToast from 'izitoast';
 import 'iziToast/dist/css/iziToast.min.css';
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
