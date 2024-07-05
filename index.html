@@ -2,23 +2,39 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/goit-js-hw-10/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vanilla App Template</title>
+    <title>Image Search App</title>
+    
+    <link
+      rel="stylesheet"
+      href="node_modules/izitoast/dist/css/iziToast.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="node_modules/simplelightbox/dist/simple-lightbox.min.css"
+    />
+    <script type="module" crossorigin src="/goit-js-hw-10/commonHelpers.js"></script>
+    <link rel="modulepreload" crossorigin href="/goit-js-hw-10/assets/vendor-8501dee5.js">
+    <link rel="stylesheet" href="/goit-js-hw-10/assets/vendor-a088063d.css">
+    <link rel="stylesheet" href="/goit-js-hw-10/assets/index-85611381.css">
   </head>
   <body>
-    <header class="header">
-      <nav class="nav">
-        <ul class="nav-list">
-          <li class="nav-item">
-            <a href="./1-timer.html" class="nav-link">Timer</a>
-          </li>
-
-          <li class="nav-item">
-            <a href="./2-snackbar.html" class="nav-link">Snackbar</a>
-          </li>
-        </ul>
-      </nav>
+    <header>
+      <h1>Image Search App</h1>
     </header>
+    <main>
+      <form id="search-form">
+        <input
+          type="text"
+          id="search-input"
+          placeholder="Enter search term"
+          required
+        />
+        <button type="submit">Search</button>
+      </form>
+      <div class="loader"></div>
+      <div class="gallery"></div>
+    </main>
+    
   </body>
 </html>
