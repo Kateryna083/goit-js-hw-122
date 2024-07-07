@@ -1,105 +1,138 @@
-/* styles.css */
+/**
+  |============================
+  | include css partials with
+  | default @import url()
+  |============================
+*/
+@import url('./reset.css');
+@import 'simplelightbox/dist/simple-lightbox.min.css';
+@import 'izitoast/dist/css/iziToast.min.css';
 
-/* Global Styles */
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f0f0f0;
+:root {
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+
+  color: #242424;
+  background-color: rgba(255, 255, 255, 0.87);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
 }
 
-header {
-  background-color: #333;
-  color: #fff;
-  padding: 1rem;
-  text-align: center;
+img {
+  width: 100%;
 }
 
-h1 {
-  margin: 0;
-}
-
-main {
-  max-width: 1200px;
-  margin: 2rem auto;
-  padding: 0 1rem;
-}
-
-form {
-  margin-bottom: 1rem;
+.container {
   display: flex;
   justify-content: center;
-  align-items: center;
 }
 
-#search-input {
-  padding: 0.5rem;
-  font-size: 1rem;
-  border: 1px solid #ccc;
+.search-form {
+  display: flex;
+  margin-top: 36px;
+}
+
+.form-control {
   border-radius: 4px;
-  margin-right: 0.5rem;
+  width: 272px;
+  height: 40px;
+  border: 1px solid #808080;
+  margin-right: 8px;
+  padding: 8px 16px;
+  outline: none;
 }
 
-button {
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
-  background-color: #007bff;
-  color: #fff;
+.form-control::placeholder {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: 0.04em;
+  color: #808080;
+}
+.btn {
+  border-radius: 8px;
+  padding: 8px 16px;
+  width: 91px;
+  height: 40px;
   border: none;
-  cursor: pointer;
-  border-radius: 4px;
+  background: #4e75ff;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: 0.04em;
+  color: #fff;
 }
 
-button:hover {
-  background-color: #0056b3;
+.card-img {
+  height: 252px;
 }
 
 .gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 36px 156px;
+  gap: 24px;
 }
 
-.card {
-  background-color: #fff;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-  overflow: hidden;
+.gallery-item {
+  width: calc((100% - 48px) / 3);
+  border: 1px solid #808080;
 }
 
-.card img {
-  width: 100%;
-  height: auto;
-  display: block;
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
+.galery-item-description {
+  display: flex;
+  justify-content: space-around;
+  padding: 4px 0 4px 0;
 }
 
-.card-info {
-  padding: 1rem;
+.count {
+  text-align: center;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 200%;
+  letter-spacing: 0.04em;
+  color: #2e2f42;
 }
 
-.card-info p {
-  margin: 0;
-  font-size: 0.9rem;
-  color: #666;
+.count-text {
+  text-align: center;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 133%;
+  letter-spacing: 0.04em;
+  color: #2e2f42;
 }
 
 .loader {
-  display: none;
-  width: 50px;
-  height: 50px;
-  border: 5px solid #f3f3f3;
-  border-top: 5px solid #3498db;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
-  animation: spin 1s linear infinite;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  display: inline-block;
+  border-top: 4px solid #fff;
+  border-right: 4px solid transparent;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
 }
-
-@keyframes spin {
+.loader::after {
+  content: '';
+  box-sizing: border-box;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border-left: 4px solid #ff3d00;
+  border-bottom: 4px solid transparent;
+  animation: rotation 0.5s linear infinite reverse;
+}
+@keyframes rotation {
   0% {
     transform: rotate(0deg);
   }
@@ -107,23 +140,3 @@ button:hover {
     transform: rotate(360deg);
   }
 }
-
-/* Izitoast Styles */
-.iziToast {
-  font-family: Arial, sans-serif;
-}
-
-.iziToast-title {
-  font-weight: bold;
-}
-
-.iziToast-message {
-  font-size: 0.9rem;
-}
-
-.iziToast-close {
-  color: #fff;
-}
-
-/* SimpleLightbox Styles */
-/* No specific styles needed unless customization is required */
