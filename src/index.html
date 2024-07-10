@@ -2,26 +2,37 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home Work 11</title>
+    <title>Image Search App</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="stylesheet" href="./css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="./node_modules/simplelightbox/dist/simplelightbox.min.css"
+    />
   </head>
   <body>
-    <div class="container">
-      <form class="search-form">
-        <input
-          type="text"
-          class="form-control"
-          name="query"
-          placeholder="Search images..."
-        />
-        <button type="submit" class="btn btn-primary">Search</button>
-      </form>
-    </div>
+    <header>
+      <div class="container">
+        <form class="search-form">
+          <input
+            type="text"
+            class="form-control"
+            name="query"
+            placeholder="Search images..."
+            required
+          />
+          <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+      </div>
+    </header>
 
-    <a href=""></a>
-    <ul class="gallery"></ul>
+    <main>
+      <ul class="gallery"></ul>
+      <button class="load-more" style="display: none">Load more</button>
+      <div class="loader" style="display: none"></div>
+    </main>
+
     <script type="module" src="./main.js"></script>
   </body>
 </html>

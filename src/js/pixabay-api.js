@@ -1,16 +1,19 @@
-export function getPicturesByQuery(query) {
-  const API_KEY = '44784729-ebc9a0f5cc587c2700d41657d';
-  const imageType = 'photo';
-  const orientation = 'horizontal';
-  const safeSearch = true;
+import axios from 'axios';
 
-  const url = `https://pixabay.com/api/?key=${API_KEY}&q=${query}&image_type=${imageType}&orientation=${orientation}&safesearch=${safeSearch}`;
+const API_KEY = '44784729-ebc9a0f5cc587c2700d41657d';
+const imageType = 'photo';
+const orientation = 'horizontal';
+const safeSearch = true;
+const perPage = 15; // Кількість зображень на сторінці
 
-  return fetch(url).then(res => {
-    if (!res.ok) {
-      throw new Error(res.status);
-    }
+export async function getPicturesByQuery(query, page = 1) {
+  const url = `https://pixabay.com/api/?key=${API_KEY}&q=${query}&image_type=${imageType}&orientation=${orientation}&safesearch=${safeSearch}&per_page=${perPage}&page=${page}`;
 
-    return res.json();
-  });
+  try {
+    const response = await axios.get(url);
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching data:', error);
+    throw error;
+  }
 }

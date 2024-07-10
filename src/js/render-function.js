@@ -1,5 +1,11 @@
 import SimpleLightbox from 'simplelightbox';
 
+// Ініціалізація SimpleLightbox
+const lightbox = new SimpleLightbox('.gallery a', {
+  captionsData: 'alt',
+  captionDelay: 250,
+});
+
 export function renderImgCard(images) {
   const galleryList = document.querySelector('.gallery');
   galleryList.innerHTML = '';
@@ -11,7 +17,7 @@ export function renderImgCard(images) {
         <a href="${largeImageURL}">
           <img src="${webformatURL}" alt="" class="card-img"/>
         </a>
-        <ul class="galery-item-description">
+        <ul class="gallery-item-description">
           <li>
             <p class="count-text">Likes</p>
             <p class="count">${likes}</p>
@@ -36,8 +42,6 @@ export function renderImgCard(images) {
 
   galleryList.insertAdjacentHTML('afterbegin', markup);
 
-  const lightbox = new SimpleLightbox('.gallery a', {
-    captionsData: 'alt',
-    captionDelay: 250,
-  });
+  // Після оновлення галереї викликаємо метод refresh() для SimpleLightbox
+  lightbox.refresh();
 }
